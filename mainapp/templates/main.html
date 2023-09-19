@@ -3,41 +3,39 @@
 
 <html>
     <head>
-        <img src="{% static '/img/gatoplaceholder.jpg' %}" width="240" height="240"/>
+        <script src="{% static '/js/scripts.js' %}"></script>
+        <link href="{% static '/css/styles2.css' %}" rel="stylesheet"/>
+        <!--    Font de pixel                                                                           -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     </head>
 
     <body>
-        <div id = "Preguntas">
-            <!-- *////////////////////////////////////////////////////////////////////////////////////* -->
-            <!--                                                                                        -->
-            <!--    Por cada pregunta (preg) en la lista de 'preguntas' hace un <form> que imprime en   -->
-            <!--    pantalla cada pregunta y las cuatro respuestas de cada una. El jugador selecciona   -->
-            <!--    una y presiona 'Terminar' para confirmar la elección.                               -->
-            <!--                                                                                        -->
-            <!--    Pese a que salen todas las preguntas de una, se pueden esconder el resto en CSS     -->
-            <!--    para que aparezcan de una en una.                                                   -->
-
+        <div id="topBlock"></div>
+        <div id="topBlockW"></div>
+        <div id="topBlockTwo"></div>
+        <div id="topBlockTwoW"></div>
+        <img class='paragraph' src="{% static '/img/test.png' %}"/>
+        <img class="gato" src="{% static '/img/placeholder.jpg' %}" width="240" height="240"/>
+        <form id='formContainer' method='post'>
+            {% csrf_token %}
             {% for preg in preguntas %}
-                <form id="Pregunta_{{ preg_id }}" method="post">
-                    
-            <!--    La verdad no sé qué hace este token, pero evita un error. Integrenlo en <form>s     -->
-                {% csrf_token %}
-                <h2>{{ preg.enunciado }}</h2>
-
-            <!--    Escribe las respuestas una a una de la pregunta                                     -->
+            <div class='preguntasRespuestas' id = 'pregunta_{{ forloop.counter }}' hidden>
+                <h2 class='containerPregunta'>{{ preg.enunciado }}</h2>
+                <ul>
                     {% for respuesta in preg.respuesta_set.all %}
-                        <label> {{ respuesta.resp }} 
-                            <input type="radio" name="preg_{{ preg_id }}" value="{{ respuesta.id }}"> 
-                        </label><br>
+                    <div class='containerRespuesta'>
+                        <li class='containerRespuestaTexto'>
+                            <label class='radios'>{{ respuesta.resp }}<input type='radio' name="respuesta:{{ respuesta.preg.id }}"></label>
+                        </li>
+                    </div>
                     {% endfor %}
-
-            <!--    Termina el <form> al presionar el boton de submit 'Terminar'                        -->
-                <input type="submit" value="Terminar">
-                </form>  
+                </ul>
+                <button class='button' type='button' onclick='cambiarPregunta()'>Estoy seguro de mi respuesta.</button>
+            </div>
             {% endfor %}
-
-            <!--                                                                                        -->
-            <!-- *////////////////////////////////////////////////////////////////////////////////////* -->
-        </div>
+            <button id='comenzar' type='button' onclick='comenzarQuiz()'>Comenzar con el estudio</button>
+        </form>
     </body>
 </html>

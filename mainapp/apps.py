@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class GatoappConfig(AppConfig):
+class mainappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'GatoApp'
+    name = 'mainapp'

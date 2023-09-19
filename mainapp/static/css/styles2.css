@@ -1,0 +1,164 @@
+* {
+    font-family: 'VT323', monospace;
+}
+
+#comenzar {
+    position: fixed;
+    top: 500px;
+    left: 200px;
+}
+.button {
+    position: fixed;
+    display: inline-block;
+    bottom: 100px;
+    left: 150px;
+
+    color: black;
+    background-color: white;
+    font-size: 48px;
+    text-align: center;
+
+    border: none;
+    padding: 15px 32px;
+    border-radius: 10px;
+    
+    transition: transform 0.1s ease 0s;
+}
+
+.button:hover {
+    position: fixed;
+    background-color: white;
+    border: none;
+    color: black;
+    font-weight: 500;
+
+    display: inline-block;
+    transform: translateX(10px);
+    border-radius: 10px;
+}
+
+.containerPregunta {
+    position: fixed;
+    top: 50px;
+    left: 100px;
+    color: black;
+    font-size: 44px;
+    padding: 5px 5px;
+    margin: 5px 5px;
+    display: inline-block;
+    width: 600px;
+    height: 240px;
+    text-align: justify;
+}
+
+.containerRespuesta {
+    color: white;
+    background-color: black;
+    padding: 5px 5px;
+    border: 5px solid white;
+    margin: 5px 5px;
+    transition: transform 0.1s ease 0s;
+    border-radius: 5px;
+    font-size: 28px;
+    width: 750px;
+    size: 500px;
+}
+
+.containerRespuesta:hover {
+    color: black;
+    background-color: white;
+    padding: 5px 5px;
+    border: 5px solid white;
+    margin: 5px 5px;
+    font-weight: 500;
+
+    transform: translateX(10px);
+    border-radius: 5px;
+}
+
+.preguntasRespuestas {
+    position: fixed;
+    top: 500px;
+    left: 200px;
+}
+
+.paragraph {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 917px;
+    height:314px;   
+}
+
+.gato {
+    position: fixed;
+    right: 60px;
+    top: 250px;
+    width: 500px;
+    height: 500px;
+}
+
+#topBlock {
+    position: fixed;
+    top: 0px;
+    background-color: black;
+    width: 100%;
+    height: 50px;
+    z-index: 50;
+}
+
+#topBlockW {
+    position: fixed;
+    background-color: white;
+    top: 50px;
+    width: 100%;
+    height: 0.2px;
+    z-index:100;
+}
+
+#topBlockTwo {
+    position: fixed;
+    bottom: 0px;
+    background-color: black;
+    width: 100%;
+    height: 50px;
+    z-index: 50;
+}
+
+#topBlockTwoW {
+    position: fixed;
+    background-color: white;
+    bottom: 50px;
+    width: 100%;
+    height: 0.2px;
+    z-index:100;
+}
+
+body {
+    background-color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+img { 
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;                 /* Universal support since 2021   */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+
+li {
+    margin: 10px 30px;
+}
+
+ul {
+    position: fixed;
+    top: 350px;
+    left: 35px;
+}
