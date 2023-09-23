@@ -4,38 +4,45 @@
 <html>
     <head>
         <script src="{% static '/js/scripts.js' %}"></script>
-        <link href="{% static '/css/styles2.css' %}" rel="stylesheet"/>
+        <link href="{% static '/css/styles.css' %}" rel="stylesheet"/>
         <!--    Font de pixel                                                                           -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link href="{% static 'fonts/Munro-2LYe.ttf' %}" rel="stylesheet" media="screen">
     </head>
 
     <body>
-        <div id="topBlock"></div>
-        <div id="topBlockW"></div>
-        <div id="topBlockTwo"></div>
-        <div id="topBlockTwoW"></div>
-        <img class='paragraph' src="{% static '/img/test.png' %}"/>
-        <img class="gato" src="{% static '/img/placeholder.jpg' %}" width="240" height="240"/>
-        <form id='formContainer' method='post'>
-            {% csrf_token %}
-            {% for preg in preguntas %}
-            <div class='preguntasRespuestas' id = 'pregunta_{{ forloop.counter }}' hidden>
-                <h2 class='containerPregunta'>{{ preg.enunciado }}</h2>
-                <ul>
-                    {% for respuesta in preg.respuesta_set.all %}
-                    <div class='containerRespuesta'>
-                        <li class='containerRespuestaTexto'>
-                            <label class='radios'>{{ respuesta.resp }}<input type='radio' name="respuesta:{{ respuesta.preg.id }}"></label>
-                        </li>
+    <div id="generalContainer">
+        <div id="transiciones">
+            <div id="cuboTransicion1"></div>
+            <div id="cuboTransicion2"></div>
+        </div>
+        <div id="backgroundStuff" hidden>
+            <div class="shape"></div>
+            <img id="gato" src="{% static '/img/gatoanim.gif' %}"/>
+        </div>
+        <div id="kahoot">
+            <form id='formContainer' method='post'>
+                {% csrf_token %}
+                {% for preg in preguntas %}
+                    <div class='preguntasRespuestas' id='pregunta_{{ forloop.counter }}' hidden>
+                    <div class='containerPregunta'>
+                            <h2 class="numPregunta"> Pregunta {{ forloop.counter }}</h2>
+                            <h3 class="laPregunta">{{ preg.enunciado }}</h3>
+                        </div>
+                        <ul>
+                            {% for respuesta in preg.respuesta_set.all %}
+                            <div class='containerRespuesta'>
+                                <li class='containerRespuestaTexto'>
+                                    <label class='radios'>{{ respuesta.resp }}<input type='radio' name="respuesta:{{ respuesta.preg.id }}"></label>
+                                </li>
+                            </div>
+                            {% endfor %}
+                        </ul>
+                        <button class="button" type='button' onclick='cambiarPregunta()'>Hmm... ¡Es esta!</button>
                     </div>
-                    {% endfor %}
-                </ul>
-                <button class='button' type='button' onclick='cambiarPregunta()'>Estoy seguro de mi respuesta.</button>
-            </div>
-            {% endfor %}
-            <button id='comenzar' type='button' onclick='comenzarQuiz()'>Comenzar con el estudio</button>
-        </form>
+                {% endfor %}
+                <button id='comenzar' type='button' onclick='cambiarPregunta()'>Comenzar con el estudio</button>
+            </form>
+        </div>
+    </div>
     </body>
 </html>

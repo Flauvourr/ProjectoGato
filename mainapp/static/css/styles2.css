@@ -1,141 +1,164 @@
+@font-face {
+    font-family: 'Munro-2LYe';
+    src: url('/static/fonts/Munro-2LYe.ttf') format("truetype");
+  }
+
 * {
-    font-family: 'VT323', monospace;
+    font-family: 'Munro-2LYe', sans-serif;
+    font-size: 26px;
+    font-weight: normal;
 }
 
-#comenzar {
-    position: fixed;
-    top: 500px;
-    left: 200px;
-}
 .button {
-    position: fixed;
-    display: inline-block;
-    bottom: 100px;
-    left: 150px;
+    position:relative;
 
-    color: black;
-    background-color: white;
-    font-size: 48px;
+    color: #201e21;
     text-align: center;
 
-    border: none;
-    padding: 15px 32px;
-    border-radius: 10px;
-    
     transition: transform 0.1s ease 0s;
-}
 
-.button:hover {
-    position: fixed;
-    background-color: white;
     border: none;
-    color: black;
-    font-weight: 500;
-
-    display: inline-block;
-    transform: translateX(10px);
-    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #fcfcf3; 
 }
 
-.containerPregunta {
-    position: fixed;
-    top: 50px;
-    left: 100px;
-    color: black;
-    font-size: 44px;
-    padding: 5px 5px;
-    margin: 5px 5px;
-    display: inline-block;
-    width: 600px;
-    height: 240px;
-    text-align: justify;
-}
 
 .containerRespuesta {
-    color: white;
-    background-color: black;
-    padding: 5px 5px;
-    border: 5px solid white;
-    margin: 5px 5px;
-    transition: transform 0.1s ease 0s;
-    border-radius: 5px;
-    font-size: 28px;
-    width: 750px;
-    size: 500px;
+    position: relative;
+    
+    left: 8%;
+    width: 77%;
+    max-height: 20%;
+    max-width: 77%;
+
+    color: #fcfcf3;
+    text-align: center;
+    
+    transition: transform 0.1s steps(2, end) 0s !important;
+    
+    margin: 10px 5px;
+    border: 4px solid #fcfcf3;
+    background-color: #201e21;
 }
 
 .containerRespuesta:hover {
-    color: black;
-    background-color: white;
-    padding: 5px 5px;
-    border: 5px solid white;
-    margin: 5px 5px;
-    font-weight: 500;
+    color: #201e21;
 
-    transform: translateX(10px);
-    border-radius: 5px;
+    transform: translateX(1.7%);
+
+    border: 4px solid #fcfcf3;
+    background-color: #fcfcf3;
 }
 
+.containerPregunta {
+    position: relative;
+
+    transform: translateX(-57%);
+    left: 57%;
+    width: 90%;
+    max-height: 20%;
+    max-width: 90%;
+
+    color: #201e21;
+    text-align: center;
+
+    /*background-color: aquamarine;*/
+}
+
+.numPregunta {
+    position: relative;
+    display: inline-block;
+
+    min-height: 90%;
+    width: 20%;
+    
+    color: #201e21;
+    
+    background-color: #fcfcf3;
+}
+
+.laPregunta {
+    position: relative;
+    display: inline-block;
+    
+    min-height: 80%;
+    width: 75%;
+
+    color: #201e21;
+
+    background-color: #fcfcf3;
+}
 .preguntasRespuestas {
-    position: fixed;
-    top: 500px;
-    left: 200px;
+    position: absolute;
+
+    left: 2.5%;
+    top: 2.5%;
+    height: 50%;
+    width: 95%;
+
+    background-color: #201e21;
 }
 
-.paragraph {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 917px;
-    height:314px;   
+/*.shape {
+    position: absolute;
+    
+    height: 250px;
+    width: 250px;
+    max-height: 250px;
+    max-width: 250px;
+
+    background-color: red;
+}*/
+
+#gato {
+    position: absolute;
+
+    transform: translate(50%, 0);
+    bottom: 10%; 
+    right: 50%;
+
+    height: 375px;
+    width: 375px;
+
+
+    /* background-color:#fcfcf3; */
 }
 
-.gato {
-    position: fixed;
-    right: 60px;
-    top: 250px;
-    width: 500px;
-    height: 500px;
+.button {
+    position:absolute;
+
+    transform: translateX(-50%);
+    left: 50%;
+
 }
 
-#topBlock {
-    position: fixed;
-    top: 0px;
-    background-color: black;
-    width: 100%;
-    height: 50px;
-    z-index: 50;
+
+#comenzar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#topBlockW {
-    position: fixed;
-    background-color: white;
-    top: 50px;
-    width: 100%;
-    height: 0.2px;
-    z-index:100;
-}
+#generalContainer {
+    position: relative;
 
-#topBlockTwo {
-    position: fixed;
-    bottom: 0px;
-    background-color: black;
-    width: 100%;
-    height: 50px;
-    z-index: 50;
-}
+    height: 97vh;
+    width: 97vh;
+    margin: auto;
 
-#topBlockTwoW {
-    position: fixed;
-    background-color: white;
-    bottom: 50px;
-    width: 100%;
-    height: 0.2px;
-    z-index:100;
+    background-color: #201e21;
 }
 
 body {
+    display: flex;
+    align-content: center;
+    align-items: center;
     background-color: black;
+}
+
+li {
+    margin: 10px 10px;
 }
 
 ul {
@@ -151,14 +174,4 @@ img {
     image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
 
-}
-
-li {
-    margin: 10px 30px;
-}
-
-ul {
-    position: fixed;
-    top: 350px;
-    left: 35px;
 }
