@@ -50,6 +50,21 @@
     background-color: #fcfcf3;
 }
 
+.containerRespuesta input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
+}
+
+.containerRespuesta input[type="radio"]:checked + label {
+    background: #20b8be;
+    border-radius: 4px;
+}
+
+.containerRespuesta label {
+    cursor: pointer;
+    z-index: 90;
+}
+
 .containerPregunta {
     position: relative;
 
@@ -138,6 +153,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    background-color: #fcfcf3;
 }
 
 #generalContainer {
@@ -175,4 +192,3 @@ img {
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
 
 }
-
