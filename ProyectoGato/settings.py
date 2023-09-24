@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Miahoot!',
         'USER': 'postgres',
-        'PASSWORD': '200704',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': '',
     }

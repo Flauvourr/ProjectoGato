@@ -24,7 +24,7 @@
                 {% csrf_token %}
                 {% for preg in preguntas %}
                     <div class='preguntasRespuestas' id='pregunta_{{ forloop.counter }}' hidden>
-                    <div class='containerPregunta'>
+                        <div class='containerPregunta'>
                             <h2 class="numPregunta"> Pregunta {{ forloop.counter }}</h2>
                             <h3 class="laPregunta">{{ preg.enunciado }}</h3>
                         </div>
