@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'ProyectoGato.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Miahoot!',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'postgres',
+        'USER': 'yukichi',
+        'PASSWORD': 'miahooto',
+        'HOST': 'projectogato.cwll9bkmu02g.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

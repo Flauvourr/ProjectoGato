@@ -24,5 +24,4 @@ function cambiarPregunta() {
     }
 
     numDePregunta++
-    console.log(numDePregunta)
 }
