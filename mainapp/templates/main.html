@@ -10,6 +10,8 @@
     </head>
 
     <body>
+    <!-- <audio src="{% static '/audio/audio.mp3' %}" preload="auto" controls autoplay="" > -->
+    </audio>
     <div id="generalContainer">
         <div id="transiciones">
             <div id="cuboTransicion1"></div>
@@ -32,12 +34,14 @@
                             {% for respuesta in preg.respuesta_set.all %}
                             <div class='containerRespuesta'>
                                 <li class='containerRespuestaTexto'>
-                                    <label class='radios'>{{ respuesta.resp }}<input type='radio' name="respuesta:{{ respuesta.preg.id }}"></label>
+                                    <label class='radios'>{{ respuesta.resp }}
+                                        <input type='radio' value="{{ respuesta.id }}" name="respuesta:{{ respuesta.preg.id }}" onchange="cambiarPregunta()">
+                                    </label>
                                 </li>
                             </div>
                             {% endfor %}
                         </ul>
-                        <button class="button" type='button' onclick='cambiarPregunta()'>Hmm... ¡Es esta!</button>
+                        <!-- <button class="button" type='button' onclick='cambiarPregunta()'>Hmm... ¡Es esta!</button> -->
                     </div>
                 {% endfor %}
                 <button id='comenzar' type='button' onclick='cambiarPregunta()'>Comenzar con el estudio</button>

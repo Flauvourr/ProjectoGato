@@ -51,6 +51,8 @@
 }
 
 .containerRespuesta input[type="radio"] {
+    position:absolute;
+    
     opacity: 0.011;
     z-index: 100;
 }
