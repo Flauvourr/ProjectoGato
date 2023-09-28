@@ -21,31 +21,43 @@
             <div class="shape"></div>
             <img id="gato" src="{% static '/img/gatoanim.gif' %}"/>
         </div>
+
+        <!-- Sección del Kahoot                                                                                                 -->
         <div id="kahoot">
+
+        <!-- Formulario con el cual se realiza el Kahoot. Aún no funciona en su totalidad en estos momentos el submit.          -->
             <form id='formContainer' method='post'>
                 {% csrf_token %}
+        <!-- Por medio de un loop, se crean n cantidad de <div>s que contienen la i pregunta y sus cuatro respuestas asociadas. -->
                 {% for preg in preguntas %}
                     <div class='preguntasRespuestas' id='pregunta_{{ forloop.counter }}' hidden>
                     <div class='containerPregunta'>
                         <h2 class="numPregunta"> Pregunta {{ forloop.counter }}</h2>
                         <h3 class="laPregunta">{{ preg.enunciado }}</h3>
                     </div>
+        <!-- Por medio de un loop, en cada <div> de cada pregunta se crean las cuatro respuestas como alternativas de tipo
+        "radio". Al hacer click en cualquiera de ellas, se activa la función cambiarPregunta() la cual saca el atributo
+        de "hidden" del siguiente <div> con su respectiva pregunta y respuestas y se lo agrega al de la pregunta actual         -->
                         <ul>
                             {% for respuesta in preg.respuesta_set.all %}
                             <div class='containerRespuesta'>
-                                <li class='containerRespuestaTexto'>
-                                    <label class='radios'>{{ respuesta.resp }}
-                                        <input type='radio' value="{{ respuesta.id }}" name="respuesta:{{ respuesta.preg.id }}" onchange="cambiarPregunta()">
-                                    </label>
-                                </li>
+                                <li class='containerRespuestaTexto'><label class='radios'>{{ respuesta.resp }}
+                                    <input type='radio' value="{{ respuesta.id }}" name="respuesta:{{ respuesta.preg.id }}" onchange="cambiarPregunta()">    
+                                </label></li>
                             </div>
                             {% endfor %}
+        <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
                         </ul>
-                        <!-- <button class="button" type='button' onclick='cambiarPregunta()'>Hmm... ¡Es esta!</button> -->
                     </div>
                 {% endfor %}
+        <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+        <!-- Este botón se presenta al inicio de iniciar el Kahoot, cuando todavía no hay nada en pantalla porque los <div>s estan
+        con el atributo de "hidden". Activa la función cambiarPregunta() que en este caso especial esconde el botón, además de
+        mostrar la siguiente pregunta.                                                                                          -->
                 <button id='comenzar' type='button' onclick='cambiarPregunta()'>Comenzar con el estudio</button>
             </form>
+        <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
         </div>
     </div>
     </body>
