@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'Munro-2LYe';
+    src: url('/static/fonts/Munro-2LYe.ttf') format("truetype");
+  }
+
+* {
+    font-family: 'Munro-2LYe', sans-serif;
+    font-size: 26px;
+    font-weight: normal;
+}
+
+.button {
+    position:relative;
+
+    color: #201e21;
+    text-align: center;
+
+    transition: transform 0.1s ease 0s;
+
+    border: none;
+    padding: 5px 10px;
+    background-color: #fcfcf3; 
+}
+
+
+.containerRespuesta {
+    position: relative;
+    
+    left: 8%;
+    width: 77%;
+    max-height: 20%;
+    max-width: 77%;
+
+    color: #fcfcf3;
+    text-align: center;
+    
+    transition: transform 0.1s steps(2, end) 0s !important;
+    
+    margin: 10px 5px;
+    border: 4px solid #fcfcf3;
+    background-color: #201e21;
+}
+
+.containerRespuesta:hover {
+    color: #201e21;
+
+    transform: translateX(1.7%);
+
+    border: 4px solid #fcfcf3;
+    background-color: #fcfcf3;
+}
+
+.containerRespuesta input[type="radio"] {
+    position:absolute;
+    
+    opacity: 0.011;
+    z-index: 100;
+}
+
+.containerRespuesta input[type="radio"]:checked + label {
+    background: #20b8be;
+    border-radius: 4px;
+}
+
+.containerRespuesta label {
+    cursor: pointer;
+    z-index: 90;
+}
+
+.containerPregunta {
+    position: relative;
+
+    transform: translateX(-57%);
+    left: 57%;
+    width: 90%;
+    max-height: 20%;
+    max-width: 90%;
+
+    color: #201e21;
+    text-align: center;
+
+    /*background-color: aquamarine;*/
+}
+
+.numPregunta {
+    position: relative;
+    display: inline-block;
+
+    min-height: 90%;
+    width: 20%;
+    
+    color: #201e21;
+    
+    background-color: #fcfcf3;
+}
+
+.laPregunta {
+    position: relative;
+    display: inline-block;
+    
+    min-height: 80%;
+    width: 75%;
+
+    color: #201e21;
+
+    background-color: #fcfcf3;
+}
+.preguntasRespuestas {
+    position: absolute;
+
+    left: 2.5%;
+    top: 2.5%;
+    height: 50%;
+    width: 95%;
+
+    background-color: #201e21;
+}
+
+/*.shape {
+    position: absolute;
+    
+    height: 250px;
+    width: 250px;
+    max-height: 250px;
+    max-width: 250px;
+
+    background-color: red;
+}*/
+
+#gato {
+    position: absolute;
+
+    transform: translate(50%, 0);
+    bottom: 10%; 
+    right: 50%;
+
+    height: 375px;
+    width: 375px;
+
+
+    /* background-color:#fcfcf3; */
+}
+
+.button {
+    position:absolute;
+
+    transform: translateX(-50%);
+    left: 50%;
+
+}
+
+
+#comenzar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #fcfcf3;
+}
+
+#generalContainer {
+    position: relative;
+
+    height: 97vh;
+    width: 97vh;
+    margin: auto;
+
+    background-color: #201e21;
+}
+
+body {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+li {
+    margin: 10px 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+img { 
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;                 /* Universal support since 2021   */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}

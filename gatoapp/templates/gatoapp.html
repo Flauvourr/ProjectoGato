@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head></head>
+        <body>
+        <form id="formularioKahoot" method="post">
+            {% csrf_token %}
+            {% for pregunta in preguntasElegidas %}
+            <div class="contenedorPreguntaRespuestas" id="pregunta_{{ forloop.counter }}">
+                <div class="contenedorPregunta">
+                    <div class="preguntaNumero"> Pregunta {{ forloop.counter }} </div>
+                    <div class="preguntaTexto"> {{ pregunta.pregunta_Texto }}</div>
+                </div>
+                <div class="contenedorRespuestas">
+                    {% for respuesta in pregunta.respuesta_set.all %}
+                            <div class="respuestaTexto">
+                                <label class='radios'> {{ respuesta.respuesta_Texto }}
+                                    <input type='radio' value="{{ respuesta.id }}" name="respuesta:{{ respuesta.pregunta_Origen.id }}">
+                                </label>
+                            </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </form>
+    </body>
+</html>
