@@ -1,14 +1,23 @@
 html,body {margin: 0;}
 
+body {
+  background-image: url("../img/bk_verde.jpg");
+  background-repeat: no-repeat;
+  background-size: 110%;
+}
+
 div.content_register {
   position: absolute;
-  background-color: aqua;
   top: 50%;
   left: 50%;
   width: 390px;
   height: 200px;
   margin-left: -195px;
   margin-top: -100px;
+}
+
+#text_registration {
+  margin-left: 97.5px;
 }
 
 form.form-register {

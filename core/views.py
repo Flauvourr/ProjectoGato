@@ -10,7 +10,7 @@ def login(request):
 
 def register(request):
     if request.method == "POST":
-        if request.POST["password1"] == request.POST["password_auth"]:
+        if request.POST["password"] == request.POST["password_auth"]:
             user = User.objects.create_user(username = request.POST["username"], email = request.POST["email"], password = request.POST["password"])
             user.save()
             return HttpResponse("Usuario creado correctamente")
