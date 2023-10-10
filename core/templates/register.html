@@ -1,3 +1,6 @@
+{% extends 'index.html' %}
+
+{% block content %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -8,7 +11,7 @@
         <title>Registrarse</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href={% static '/css/style.css' %} rel="stylesheet" />
+        <link href={% static 'css/style.css' %} rel="stylesheet" />
     </head>
     <body>
         <div class = "content_register">
@@ -31,9 +34,11 @@
                     <label>Reingresa tu contraseña: </label>
                     <input type = "password" id = "password_auth" name = "password_auth"/>
                 </div>
-                <button> Enviar </button>
+                <div id = "message_POST"> {{message_POST}}</div>
+                <button id = "button_send_info"> Enviar </button>
             </form>
         </div>
         <script src="" async defer></script>
     </body>
 </html>
+{% endblock %}

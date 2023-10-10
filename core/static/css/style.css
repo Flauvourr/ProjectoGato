@@ -20,6 +20,16 @@ div.content_register {
   margin-left: 97.5px;
 }
 
+#message_POST {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  font-weight: bolder;
+}
+
+#button_send_info {
+  margin-left: 9.5px;
+}
+
 form.form-register {
   display: table;
 }
@@ -37,4 +47,11 @@ input {
 label,#text_registration {
   padding-right: 10px;
   padding-left: 10px;
+}
+
+
+div.login_container {
+  position: absolute;
+  top: 30%;
+  left: 5%;
 }
