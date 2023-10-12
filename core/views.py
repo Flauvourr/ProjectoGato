@@ -1,12 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as l
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.core.mail import send_mail
 
 # Funciones Registro, Login
 
 def login(request):
+    if request.method == "POST":
+        user = authenticate(request, email = request.POST["email"], username = request.POST["username"], password = request.POST["password"])
+        if not user:
+            return render(request, 'login.html', {'message_POST' : "Compruebe que los datos solicitados coincidan"})
+        else:
+            l(request,user)
+            return redirect('gatoapp')
     return render(request, 'login.html')
 
 def register(request):

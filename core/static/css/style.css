@@ -50,10 +50,10 @@ label,#text_registration {
   padding-left: 10px;
 }
 
-#message_POST {
+div.message_POST {
   margin-left: 10px;
   margin-bottom: 5px;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 #button_send_info {
@@ -79,7 +79,7 @@ div.content_login {
 
 #text_login {
   margin-left: 90px;
-  margin-bottom: -20px;
+  margin-bottom: -30px;
   padding-top: 25px;
 }
 
