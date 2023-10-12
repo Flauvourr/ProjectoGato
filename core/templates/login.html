@@ -12,22 +12,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href={% static 'css/style.css' %}>
     </head>
-    <body>
-        <div class = "login_container">
+    <body class = "login_body">
+        <div class = "content_login">
             <h1 id = "text_login">Inicia Sesión</h1>
-            <form action="" method="POST" class="form-login">
+            <form action="" method="POST" class="login_form">
                 {% csrf_token %}
-                <div class="form-login">
-                    <label>Ingresa tu email: </label>
-                    <input type = "email" id = "email" name = "email"/>
+                <div class="login_form">
+                    <label class = "login_form">Ingresa tu email </label>
+                    <input class = "login_form" type = "email" id = "email" name = "email"/>
                 </div>
                 <div class="form-login">
-                    <label>Ingresa tu nombre de usuario: </label>
-                    <input type = "text" id = "username" name = "username"/>
+                    <label class = "login_form">Ingresa tu nombre de usuario </label>
+                    <input class = "login_form" type = "text" id = "username" name = "username"/>
                 </div>
                 <div class="form-login">
-                    <label>Ingresa tu contraseña: </label>
-                    <input type = "password" id = "password" name = "password"/>
+                    <label class = "login_form"> Ingresa tu contraseña </label>
+                    <input class = "login_form" type = "password" id = "password" name = "password"/>
                 </div>
                 <div id = "message_POST"> {{message_POST}}</div>
                 <button id = "button_send_info"> Enviar </button>

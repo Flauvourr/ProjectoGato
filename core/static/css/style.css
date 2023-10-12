@@ -1,10 +1,21 @@
 html,body {margin: 0;}
 
-body {
+body.login_body {
+  background-image: url("../img/fondo_paisaje.jfif");
+}
+
+body.register_body {
   background-image: url("../img/bk_verde.jpg");
+}
+
+body {
   background-repeat: no-repeat;
   background-size: 110%;
 }
+
+
+
+/* REGISTER STYLES */
 
 div.content_register {
   position: absolute;
@@ -20,6 +31,25 @@ div.content_register {
   margin-left: 97.5px;
 }
 
+form.register_form {
+  display: table;
+}
+
+div.register_form {
+  display: table-row;
+}
+
+label.register_form,
+input.register_form {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+label,#text_registration {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 #message_POST {
   margin-left: 10px;
   margin-bottom: 5px;
@@ -30,28 +60,43 @@ div.content_register {
   margin-left: 9.5px;
 }
 
-form.form-register {
-  display: table;
-}
-
-div.form-register {
-  display: table-row;
-}
-
-label,
-input {
-  display: table-cell;
-  margin-bottom: 10px;
-}
-
-label,#text_registration {
-  padding-right: 10px;
-  padding-left: 10px;
-}
 
 
-div.login_container {
+
+/* LOGIN STYLES */
+
+div.content_login {
   position: absolute;
-  top: 30%;
-  left: 5%;
+  background-color: khaki;
+  top: 50%;
+  left: 50%;
+  height: 350px;
+  width: 350px;
+  margin-left: -175px;
+  margin-top: -175px;
+  border-radius: 50%;
+}
+
+#text_login {
+  margin-left: 90px;
+  margin-bottom: -20px;
+  padding-top: 25px;
+}
+
+form.login_form {
+  margin-top: 15%;
+  margin-left: 60px;
+}
+
+
+input.login_form {
+  padding-right: 60px;
+}
+
+input.login_form, label.login_form {
+  margin: 3.5px;
+}
+
+#button_send_info {
+  margin: 5px;
 }
