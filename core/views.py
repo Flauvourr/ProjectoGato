@@ -7,6 +7,10 @@ from django.contrib.auth.models import User
 
 # Funciones Registro, Login
 
+def menu(request):
+    return render(request, 'menu.html')
+
+
 def login(request):
     if request.method == "POST":
         user = authenticate(request, email = request.POST["email"], username = request.POST["username"], password = request.POST["password"])
