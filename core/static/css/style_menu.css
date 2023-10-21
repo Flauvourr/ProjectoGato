@@ -1,7 +1,7 @@
 html,body {margin: 0;}
 
 body {
-  background-image: url("../img/fondo-de-semitono-rosado.jpg");
+  background-image: url("../img/gatofondo2.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -9,19 +9,59 @@ body {
 #text_menu {
     position: absolute;
     top: 10%;
-    left: 50%;
+    left: 40%;
     font-size: xxx-large;
     width: 400px;
     height: 100px;
-    background-color: wheat;
+    background-color:#d79d49;
     margin-left:-200px;
     padding-left: 50px;
     padding-top: 20px;
+    border-radius: 50%;
 }
 
 div.container_menu {
+    display: inline-block;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 30%;
+    left: 42%;
     font-size: xx-large;
+    width: 500px;
+    margin-left: -250px;
+    height: 250px;
+}
+
+div.container_label1, div.container_label2 {
+  display: inline-flex;
+  margin-top: 15px;
+  margin-left: 30px;
+  padding-top: 10px;
+  padding-bottom: -15px;
+  width: 200px;
+  background-color: #5c5358;
+  height: 90px;
+  border-radius: 10%;
+}
+
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+#login {
+  padding-left: 10px;
+}
+
+#guest_play {
+  padding-left: 20px;
+}
+
+#register {
+  padding-top: 10px;
+  padding-left: 30px;
+}
+
+#learn {
+  padding-top: 10px;
+  padding-left: 40px;
 }
