@@ -23,7 +23,7 @@ def register(request):
     if request.method == "POST":
         if request.POST["password"] == request.POST["password_auth"]:
             try:
-                user = User.objects.create_user(username = request.POST["username"], email = request.POST["email"], password = request.POST["password"])
+                user = User.objects.create_user(username = request.POST["username"], email = request.POST["email"], password = request.POST["password"], nivel = 1)
                 user.save()
                 return render(request, 'register.html', {"message_POST" : "Usuario registrado correctamente"})
             except:
