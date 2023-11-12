@@ -166,14 +166,14 @@
     width: 97vh;
     margin: auto;
 
-    background-color: #201e21;
+    background-color: white;
 }
 
 body {
     display: flex;
     align-content: center;
     align-items: center;
-    background-color: black;
+    background-color: white;
 }
 
 li {
