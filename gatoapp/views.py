@@ -1,19 +1,33 @@
 import random
 from django.shortcuts import render, HttpResponse
 from .models import Pregunta, Respuesta
-
+import django.contrib.messages as messages
 #Global variables
 numDePregunta = 1
 resp_correctas = 0
+nivel = 1
+
+def clean_data(request):
+    global numDePregunta, resp_correctas
+    numDePregunta = 1; resp_correctas = 0; 
+    for pregunta in Pregunta.objects.filter(pregunta_Usada = True):
+        pregunta.pregunta_Usada = False
+        pregunta.save()
+
 # Create your views here.
 def gatoapp(request):
-    global numDePregunta, resp_correctas
+    global numDePregunta, resp_correctas, nivel
+    #Variable temporal, despues la quito, es para el alert
+    resp_correctas_alert = resp_correctas
+    nivel_completo = 0
     #Si se llega recien a la pagina o si recarga parte de 0 
     if request.method == "GET":
-        numDePregunta = 1; resp_correctas = 0
-        for pregunta in Pregunta.objects.filter(pregunta_Usada = True):
-            pregunta.pregunta_Usada = False
-            pregunta.save()
+        clean_data(request)
+    #Para cambiar de nivel o repetirlo dependiendo de las buenas
+    if numDePregunta == 6:
+        nivel = nivel if resp_correctas < 3 else nivel+1
+        nivel_completo = 1
+        clean_data(request)
     #Si responde una alternativa y es correcta se suma una respuesta correcta
     if request.method == "POST":
         if Respuesta.objects.filter(id = request.POST["respuesta"]).values_list("respuesta_Correcto")[0][0] == True:
@@ -42,7 +56,10 @@ def gatoapp(request):
         'preguntasElegidas': preguntasElegidas,
         'respuestasPorPregunta': respuestasPorPregunta,
         'numDePregunta' : numDePregunta,
+        'nivel' : nivel,
+        'resp_correctas_alert' : resp_correctas_alert,
+        'nivel_completo' : nivel_completo,
     }
-    print(resp_correctas)
+
     numDePregunta+=1
     return render(request, "gatoapp.html", context)

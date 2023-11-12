@@ -27,8 +27,9 @@
             <a href="">
                 <button id = "comenzar">Enviar</button>
             </a>
-            
+            <h1 name = 'nivel'> Nivel {{nivel}}</h1>
             {% endfor %}
         </form>
+        <script>if ({{numDePregunta}} == 1 && {{nivel_completo}} == 1){alert("Completaste el nivel con " + {{resp_correctas_alert}} + " respuestas correctas!!!")}</script>
     </body>
 </html>

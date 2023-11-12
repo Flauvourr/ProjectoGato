@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as l
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 # Funciones Registro, Login
