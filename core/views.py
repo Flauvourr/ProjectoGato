@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as l
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 # Funciones Registro, Login
@@ -25,7 +23,7 @@ def register(request):
     if request.method == "POST":
         if request.POST["password"] == request.POST["password_auth"]:
             try:
-                user = User.objects.create_user(username = request.POST["username"], email = request.POST["email"], password = request.POST["password"])
+                user = User.objects.create_user(username = request.POST["username"], email = request.POST["email"], password = request.POST["password"], nivel = 1)
                 user.save()
                 return render(request, 'register.html', {"message_POST" : "Usuario registrado correctamente"})
             except:
