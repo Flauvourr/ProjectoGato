@@ -1,67 +1,73 @@
 html,body {margin: 0;}
 
-body {
-  background-image: url("../img/gatofondo2.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
 
-#text_menu {
-    position: absolute;
-    top: 10%;
-    left: 40%;
-    font-size: xxx-large;
-    width: 400px;
-    height: 100px;
-    background-color:#d79d49;
-    margin-left:-200px;
-    padding-left: 50px;
-    padding-top: 20px;
-    border-radius: 50%;
-}
-
-div.container_menu {
-    display: inline-block;
-    position: absolute;
-    top: 30%;
-    left: 42%;
-    font-size: xx-large;
-    width: 500px;
-    margin-left: -250px;
-    height: 250px;
-}
-
-div.container_label1, div.container_label2 {
-  display: inline-flex;
-  margin-top: 15px;
-  margin-left: 30px;
-  padding-top: 10px;
-  padding-bottom: -15px;
-  width: 200px;
-  background-color: #5c5358;
-  height: 90px;
-  border-radius: 10%;
+* {
+  font-size: 30px;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 a {
-  text-decoration: none;
-  color: whitesmoke;
+  color: inherit;
+  text-decoration: inherit;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
-#login {
-  padding-left: 10px;
+body {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  background-color: black;
 }
 
-#guest_play {
-  padding-left: 20px;
+#containerMenu-div {
+  position: absolute;
+  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-#register {
-  padding-top: 10px;
-  padding-left: 30px;
+#oneToOneContainer-div {
+    position: relative;
+
+    height: 100vh;
+    width: 100vh;
+    margin: auto;
+
+    background-color: #201e21;
 }
 
-#learn {
-  padding-top: 10px;
-  padding-left: 40px;
+.containerLabel-div {
+  position: relative;
+
+  height: 75px;
+  width: 350px;
+  line-height: 75px;
+
+  transition: transform 0.1s steps(2, end) 0s !important;
+
+  margin: 50px;
+  padding: 20px;
+
+  text-align: center;
+
+  border: 7px solid #fcfcf3;
+  background-color: #fcfcf3;
+}
+
+.containerLabel-div:hover {
+  transform: translateY(-14%);
+
+  color: #fcfcf3;
+  border: 7px solid #fcfcf3;
+  background-color: #201e21;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
