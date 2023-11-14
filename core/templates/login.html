@@ -1,40 +1,82 @@
-{% extends "index.html" %}
 {% block content %}
 {% load static %}
 
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Iniciar Sesión</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href={% static 'css/style.css' %}>
-    </head>
-    <body class = "login_body">
-        <div class = "content_login">
-            <h1 id = "text_login">Inicia Sesión</h1>
-            <form action="" method="POST" class="login_form">
-                {% csrf_token %}
-                <div class="login_form">
-                    <label class = "login_form">Ingresa tu email </label>
-                    <input class = "login_form" type = "email" id = "email" name = "email"/>
-                </div>
-                <div class="form-login">
-                    <label class = "login_form">Ingresa tu nombre de usuario </label>
-                    <input class = "login_form" type = "text" id = "username" name = "username"/>
-                </div>
-                <div class="form-login">
-                    <label class = "login_form"> Ingresa tu contraseña </label>
-                    <input class = "login_form" type = "password" id = "password" name = "password"/>
-                </div>
-                <div class = "message_POST"> {{message_POST}}</div>
-                <button id = "button_send_info"> Enviar </button>
-            </form>
-        </div>
+        <link rel="stylesheet" href={% static 'css/style_login.css' %}>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+        <title>GatoApp - Log-In</title> 
+</head>
+<body class = "login_body">
+    <div id="oneToOneContainer-div">
+            <div class="div1"> </div>
+            <div class="div2"> </div>
+            <div class="div3"> </div>
+            <div class="div4"> </div>
+            <div class="div5"> </div>
+            <div class="div6"> </div>
+            <div class="div7"> </div>
+            <div class="div8"> </div>
+            <div class="div9"> </div>
+            <div class="div10"> </div>
+            <div class="div11"> </div>
+            <div class="div12"> </div>
+            <div class="div13"> </div>
+            <div class="div14"> </div>
+            <div class="div15"> </div>
+            <div class="div16"> </div>
+            <div class="div17"> </div>
+            <div class="div18"> </div>
+            <div class="div19"> </div>
+            <div class="div20"> </div>
+            <div class="div21"> </div>
+            <div class="div22"> </div>
+            <div class="div23"> </div>
+            <div class="div24"> </div>
+            <div class="div25"> </div>
+            <div class="div26"> </div>
+            <div class="div27"> </div>
+            <div class="div28"> </div>
+            <div class="div29"> </div>
+            <div class="div30"> </div>
+            <div class="div31"> </div>
+            <div class="div32"> </div> 
+        <div id = "textLogin-div">Inicia Sesión</div> 
+        <div id = "containerLogin-div">    
+            <div class = "contentLogin-div">
+                <form action="" method="POST" class="login_form">
+                    {% csrf_token %}
+                    <div class="formLogin-div">
+                        <label class = "loginForm-label">Ingresa tu nombre de usuario: </label>
+                        <input class = "loginForm-input" type = "text" id = "username" name = "username"/>
+                    </div>
+                    <div class="formLogin-div">
+                        <label class = "loginForm-label">Ingresa tu email: </label>
+                        <input class = "loginForm-input" type = "email" id = "email" name = "email"/>
+                    </div>
+                    <div class="formLogin-div">
+                        <label class = "loginForm-label" > Ingresa tu contraseña: </label>
+                        <input class = "loginForm-input" type = "password" id = "password" name = "password"/>
+                    </div>
+                    <div class = "message_POST"> {{message_POST}}</div>
+                    <div id="buttonSend-div">
+                        <button id = "button_send_info"> Enviar </button>
+                    </div>
+                </form>
+            </div>
 
-        <script src="" async defer></script>
-    </body>
+            <script src="" async defer></script>
+        </div>
+        <div id="registerPrompt-div">¿No tienes cuenta? <a href = "/login/register"> Registrate </a></div>
+        <div id="registerPrompt2-div">O bien <a href = "/gatoapp"> Entra como invitado </a></div>
+    </div>
+</body>
 </html>
 {% endblock %}

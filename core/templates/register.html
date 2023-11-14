@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+
 
 {% block content %}
 {% load static %}
@@ -8,37 +8,79 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Registrarse</title>
+        <title>GatoApp - Regístrate</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href={% static 'css/style.css' %} rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+        <link href={% static 'css/style_register.css' %} rel="stylesheet" />
     </head>
-    <body class = "register_body">
-        <div class = "content_register">
-            <h1 id = "text_registration">Registrate</h1>
+<body class = "register_body">
+    <div id="oneToOneContainer-div">
+            <div class="div1"> </div>
+            <div class="div2"> </div>
+            <div class="div3"> </div>
+            <div class="div4"> </div>
+            <div class="div5"> </div>
+            <div class="div6"> </div>
+            <div class="div7"> </div>
+            <div class="div8"> </div>
+            <div class="div9"> </div>
+            <div class="div10"> </div>
+            <div class="div11"> </div>
+            <div class="div12"> </div>
+            <div class="div13"> </div>
+            <div class="div14"> </div>
+            <div class="div15"> </div>
+            <div class="div16"> </div>
+            <div class="div17"> </div>
+            <div class="div18"> </div>
+            <div class="div19"> </div>
+            <div class="div20"> </div>
+            <div class="div21"> </div>
+            <div class="div22"> </div>
+            <div class="div23"> </div>
+            <div class="div24"> </div>
+            <div class="div25"> </div>
+            <div class="div26"> </div>
+            <div class="div27"> </div>
+            <div class="div28"> </div>
+            <div class="div29"> </div>
+            <div class="div30"> </div>
+            <div class="div31"> </div>
+            <div class="div32"> </div> 
+
+        <div id = "textLogin-div">Regístrate</div>
+        <div id = "containerLogin-div">  
             <form action="" method="POST" class="register_form">
                 {% csrf_token %}
-                <div class="register_form">
-                    <label class = "register_form">Ingresa tu email: </label>
-                    <input class = "register_form" type = "email" id = "email" name = "email"/>
+                <div class="formRegister-div">
+                    <label class = "registerForm-label">Ingresa tu nombre de usuario: </label>
+                    <input class = "registerForm-input" type = "text" id = "username" name = "username"/>
                 </div>
-                <div class="register_form">
-                    <label class = "register_form">Ingresa tu nombre de usuario: </label>
-                    <input class = "register_form" type = "text" id = "username" name = "username"/>
+                <div class="formRegister-div">
+                    <label class = "registerForm-label">Ingresa tu email: </label>
+                    <input class = "registerForm-input" type = "email" id = "email" name = "email"/>
                 </div>
-                <div class="register_form">
-                    <label class = "register_form">Ingresa tu contraseña: </label>
-                    <input class = "register_form" type = "password" id = "password" name = "password"/>
+                <div class="formRegister-div">
+                    <label class = "registerForm-label">Ingresa tu contraseña: </label>
+                    <input class = "registerForm-input" type = "password" id = "password" name = "password"/>
                 </div>
-                <div class="register_form">
-                    <label class = "register_form">Reingresa tu contraseña: </label>
-                    <input class = "register_form" type = "password" id = "password_auth" name = "password_auth"/>
+                <div class="formRegister-div">
+                    <label class = "registerForm-label">Reingresa tu contraseña: </label>
+                    <input class = "registerForm-input" type = "password" id = "password_auth" name = "password_auth"/>
                 </div>
                 <div class = "message_POST"> {{message_POST}}</div>
-                <button id = "button_send_info"> Enviar </button>
+                <div id="buttonSend-div">
+                    <button id = "button_send_info"> Enviar </button>
+                </div>
             </form>
         </div>
+        <div id="registerPrompt-div">¿Ya tienes cuenta? <a href = "/login/register"> Inicia sesión </a></div>
+        <div id="registerPrompt2-div">O bien <a href = "/gatoapp"> Entra como invitado </a></div>
         <script src="" async defer></script>
-    </body>
+    </div>
+</body>
 </html>
 {% endblock %}
