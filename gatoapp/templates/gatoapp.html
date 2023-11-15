@@ -4,7 +4,12 @@
 <html>
 <head>
     <link href={% static 'css/styles.css' %} rel="stylesheet" />
-    <script> if ({{numDePregunta}} == 1 && {{nivel_completo}} == 1){alert("Completaste el nivel con " + {{resp_correctas_alert}} + " respuestas correctas!!!")}</script>
+    <script> 
+        if ({{numDePregunta}} == 1 && {{nivel_completo}} == 1)
+            {alert("Completaste el nivel con " + {{resp_correctas_alert}} + " respuestas correctas, pero no es suficiente :(, tendras que repetir")}
+        else if({{numDePregunta}} == 1 && {{nivel_completo}} != 1)
+            {alert("Completaste el nivel con " + {{resp_correctas_alert}} + "respuestas correctas, por lo que avanzaste al siguiente nivel, Felicidades!!!")}
+    </script>
 </head>
 <body>
     <div id="oneToOneContainer-div">

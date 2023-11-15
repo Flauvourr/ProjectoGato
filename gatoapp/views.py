@@ -2,11 +2,13 @@ import random
 from django.shortcuts import render, HttpResponse
 from .models import Pregunta, Respuesta
 import django.contrib.messages as messages
-#Global variables
+#Variables Globales
 numDePregunta = 1
 resp_correctas = 0
 nivel = 1
+#CABE RECALCAR QUE HASTA EL MOMENTO SOLO SE DISPONE DE FUNCIONALIDAD PARA INVITADOS
 
+#Función que reinicia el juego
 def clean_data(request):
     global numDePregunta, resp_correctas
     numDePregunta = 1; resp_correctas = 0; 
@@ -14,10 +16,10 @@ def clean_data(request):
         pregunta.pregunta_Usada = False
         pregunta.save()
 
-# Create your views here.
+# Función main de la pagina gatoapp
 def gatoapp(request):
+    #variables
     global numDePregunta, resp_correctas, nivel
-    #Variable temporal, despues la quito, es para el alert
     resp_correctas_alert = resp_correctas
     nivel_completo = 0
     #Si se llega recien a la pagina o si recarga parte de 0 
