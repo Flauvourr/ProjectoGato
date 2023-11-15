@@ -2,34 +2,68 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href={% static 'css/styles.css' %} rel="stylesheet" />
-    </head>
-        <body>
+<head>
+    <link href={% static 'css/styles.css' %} rel="stylesheet" />
+    <script> if ({{numDePregunta}} == 1 && {{nivel_completo}} == 1){alert("Completaste el nivel con " + {{resp_correctas_alert}} + " respuestas correctas!!!")}</script>
+</head>
+<body>
+    <div id="oneToOneContainer-div">
+        <div class="div1"> </div>
+        <div class="div2"> </div>
+        <div class="div3"> </div>
+        <div class="div4"> </div>
+        <div class="div5"> </div>
+        <div class="div6"> </div>
+        <div class="div7"> </div>
+        <div class="div8"> </div>
+        <div class="div9"> </div>
+        <div class="div10"> </div>
+        <div class="div11"> </div>
+        <div class="div12"> </div>
+        <div class="div13"> </div>
+        <div class="div14"> </div>
+        <div class="div15"> </div>
+        <div class="div16"> </div>
+        <div class="div17"> </div>
+        <div class="div18"> </div>
+        <div class="div19"> </div>
+        <div class="div20"> </div>
+        <div class="div21"> </div>
+        <div class="div22"> </div>
+        <div class="div23"> </div>
+        <div class="div24"> </div>
+        <div class="div25"> </div>
+        <div class="div26"> </div>
+        <div class="div27"> </div>
+        <div class="div28"> </div>
+        <div class="div29"> </div>
+        <div class="div30"> </div>
+        <div class="div31"> </div>
+        <div class="div32"> </div> 
         <form id="formularioKahoot" method="post" action = "">
             {% csrf_token %}
             {% for pregunta in preguntasElegidas %}
-            <div class="contenedorPreguntaRespuestas" id="pregunta_{{ numDePregunta }}">
-                <div class="contenedorPregunta">
-                    <div class="preguntaNumero"> Pregunta {{ numDePregunta }} </div>
-                    <div class="preguntaTexto"> {{ pregunta.pregunta_Texto }}</div>
-                </div>
-                <div class="contenedorRespuestas">
+            <div class="contenedorPregunta-div">
+                <div class="preguntaNumero-div"> Pregunta {{ numDePregunta }} </div>
+                <div class="preguntaTexto-div"> {{ pregunta.pregunta_Texto }}</div>
+            </div>
+            <div class="contenedorPreguntaRespuestas-div" id="pregunta_{{ numDePregunta }}">
                     {% for respuesta in pregunta.respuesta_set.all %}
+                        <div class="contenedorRespuestas-div">
                             <div class="respuestaTexto">
                                 <label class='radios'> {{ respuesta.respuesta_Texto }}
                                     <input type='radio' value="{{ respuesta.id }}" name="respuesta">
                                 </label>
                             </div>
+                        </div>
                     {% endfor %}
-                </div>
             </div>
             <a href="">
                 <button id = "comenzar">Enviar</button>
             </a>
-            <h1 name = 'nivel'> Nivel {{nivel}}</h1>
+            <div class="nivelText-div" name = 'nivel'> Día {{nivel}}</div>
             {% endfor %}
         </form>
-        <script>if ({{numDePregunta}} == 1 && {{nivel_completo}} == 1){alert("Completaste el nivel con " + {{resp_correctas_alert}} + " respuestas correctas!!!")}</script>
-    </body>
+    </div>
+</body>
 </html>
