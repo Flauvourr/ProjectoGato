@@ -8,6 +8,14 @@ from core.models import User_Data
 numDePregunta = 1
 resp_correctas = 0
 nivel = 1
+mensajes_chat = ["texto1", 
+                 "texto2",
+                 "texto3",
+                 "texto4",
+                 "texto5",
+                 "texto6",
+                 "texto7"
+                ]
 
 #Función que reinicia el juego
 def clean_data(request):
@@ -77,6 +85,7 @@ def gatoapp(request):
         'nivel' : nivel,
         'resp_correctas_alert' : resp_correctas_alert,
         'nivel_completo' : nivel_completo,
+        "mensajes_chat" : mensajes_chat[nivel-1]
     }
 
     numDePregunta+=1
