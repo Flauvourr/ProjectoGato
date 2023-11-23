@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
+
+
 class Pregunta(models.Model):
     pregunta_Texto = models.CharField(max_length=160)
     pregunta_Usada = models.BooleanField(default=False)

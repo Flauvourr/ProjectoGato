@@ -2,11 +2,12 @@ import random
 from django.shortcuts import render, HttpResponse
 from .models import Pregunta, Respuesta
 import django.contrib.messages as messages
+from core.models import User_Data
+
 #Variables Globales
 numDePregunta = 1
 resp_correctas = 0
 nivel = 1
-#CABE RECALCAR QUE HASTA EL MOMENTO SOLO SE DISPONE DE FUNCIONALIDAD PARA INVITADOS
 
 #Función que reinicia el juego
 def clean_data(request):
@@ -15,6 +16,9 @@ def clean_data(request):
     for pregunta in Pregunta.objects.filter(pregunta_Usada = True):
         pregunta.pregunta_Usada = False
         pregunta.save()
+def load_user(request):
+    global nivel
+    nivel = User_Data.objects.filter(nombre = request.user)#Falta terminar
 
 # Función main de la pagina gatoapp
 def gatoapp(request):
@@ -25,11 +29,15 @@ def gatoapp(request):
     #Si se llega recien a la pagina o si recarga parte de 0 
     if request.method == "GET":
         clean_data(request)
+        nivel_completo = -1
+        if request.user.is_authenticated():
+            load_user(request)
     #Para cambiar de nivel o repetirlo dependiendo de las buenas
     if numDePregunta == 6:
         nivel = nivel if resp_correctas < 3 else nivel+1
-        nivel_completo = 1
+        nivel_completo = 1 if resp_correctas > 3 else 0
         clean_data(request)
+        
     #Si responde una alternativa y es correcta se suma una respuesta correcta
     if request.method == "POST":
         if Respuesta.objects.filter(id = request.POST["respuesta"]).values_list("respuesta_Correcto")[0][0] == True:
