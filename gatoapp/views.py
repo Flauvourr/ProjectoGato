@@ -16,9 +16,11 @@ def clean_data(request):
     for pregunta in Pregunta.objects.filter(pregunta_Usada = True):
         pregunta.pregunta_Usada = False
         pregunta.save()
+
+#Función que carga la información del usuario
 def load_user(request):
     global nivel
-    nivel = User_Data.objects.filter(nombre = request.user)#Falta terminar
+    nivel = User_Data.objects.filter(nombre = request.user).values_list("nivel")[0][0]
 
 # Función main de la pagina gatoapp
 def gatoapp(request):
@@ -30,12 +32,21 @@ def gatoapp(request):
     if request.method == "GET":
         clean_data(request)
         nivel_completo = -1
-        if request.user.is_authenticated():
+        if request.user.is_authenticated: #Si hay un usuario logueado carga su información
             load_user(request)
     #Para cambiar de nivel o repetirlo dependiendo de las buenas
     if numDePregunta == 6:
-        nivel = nivel if resp_correctas < 3 else nivel+1
-        nivel_completo = 1 if resp_correctas > 3 else 0
+        if resp_correctas > 3:
+            nivel+=1
+            nivel_completo = 1
+            try: #Guarda el nivel logrado en la información del usuario logueado
+                user_playing = User_Data.objects.get(nombre = request.user)
+                user_playing.nivel = nivel
+                user_playing.save()
+            except:
+                pass
+        else:
+            nivel_completo = 0
         clean_data(request)
         
     #Si responde una alternativa y es correcta se suma una respuesta correcta
@@ -44,11 +55,8 @@ def gatoapp(request):
             resp_correctas += 1
     #Saca todas las preguntas que no hayan sido usadas antes.
     preguntasDisponibles = Pregunta.objects.filter(pregunta_Usada=False)
-    #En caso de que no hayan preguntas, manda el warning.
-    if preguntasDisponibles.count()==0:
-        return HttpResponse('No hay nada añadido aún')
     
-    #Si hay preguntas añadidas, sigue.
+    #Sortea las preguntas.
     preguntasElegidas = random.sample(list(preguntasDisponibles), 1)
     
     for preguntaElegida in preguntasElegidas:
