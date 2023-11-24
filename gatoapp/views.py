@@ -85,8 +85,11 @@ def gatoapp(request):
         'nivel' : nivel,
         'resp_correctas_alert' : resp_correctas_alert,
         'nivel_completo' : nivel_completo,
-        "mensajes_chat" : mensajes_chat[nivel-1]
     }
 
     numDePregunta+=1
     return render(request, "gatoapp.html", context)
+
+def lobby(request):
+    global nivel, mensajes_chat
+    return render(request, "lobby.html", {"nivel" : nivel, "mensajes_chat" : mensajes_chat[nivel-1]})
