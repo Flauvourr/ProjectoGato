@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
     <link href={% static 'css/styles.css' %} rel="stylesheet" />
     <script> 
         if ({{numDePregunta}} == 1 && {{nivel_completo}} == 0)
@@ -45,12 +46,9 @@
         <div class="div30"> </div>
         <div class="div31"> </div>
         <div class="div32"> </div> 
-<<<<<<< Updated upstream
         
-=======
-
         <img id="gato" src="{% static '/img/gatoanim.gif' %}"/>
->>>>>>> Stashed changes
+
         <form id="formularioKahoot" method="post" action = "">
             {% csrf_token %}
             {% for pregunta in preguntasElegidas %}
@@ -72,7 +70,7 @@
             <a href="">
                 <button id = "comenzar">Enviar</button>
             </a>
-            
+            <p>{{mensajes_chat}}</p>
             <div class="nivelText-div" name = 'nivel'> Día {{nivel}}</div>
             {% endfor %}
         </form>
