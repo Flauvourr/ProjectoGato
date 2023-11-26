@@ -1,5 +1,5 @@
 import random
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import Pregunta, Respuesta
 import django.contrib.messages as messages
 from core.models import User_Data
@@ -114,10 +114,12 @@ def gatoapp(request):
                 pass
         else:
             nivel_completo = 0
+            Reset_Questions(request)
         clean_data(request)
     if nivel == 8:
-        User_F_OR_L_JOIN = 0
-        return render(request, "Final.html")
+        nivel = 0
+        User_F_Join = -1
+        return redirect("lobby")
         
     #Si responde una alternativa y es correcta se suma una respuesta correcta
     if request.method == "POST":
@@ -158,6 +160,9 @@ def lobby(request):
         Reset_Questions(request)
         User_F_Join = 0
         return render(request, "Inicio.html")
+    if User_F_Join == -1:
+        User_F_Join = 1
+        return render(request, "Final.html")
     if request.user.is_authenticated: #Si hay un usuario logueado carga su información
         load_user(request)
     return render(request, "lobby.html", {"nivel" : nivel, "mensajes_chat" : mensajes_chat[nivel-1]})
