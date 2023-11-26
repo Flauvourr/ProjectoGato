@@ -117,7 +117,7 @@ def gatoapp(request):
             Reset_Questions(request)
         clean_data(request)
     if nivel == 8:
-        nivel = 0
+        nivel = 1
         User_F_Join = -1
         return redirect("lobby")
         
