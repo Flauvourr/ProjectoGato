@@ -16,7 +16,7 @@ def login(request):
             return render(request, 'login.html', {'message_POST' : "Compruebe que los datos solicitados coincidan"})
         else:
             l(request,user)
-            return redirect('gatoapp')
+            return redirect('/gatoapp/lobby')
     return render(request, 'login.html')
 
 def register(request):
