@@ -197,6 +197,7 @@ img {
 }
 .fotoInside-img {
     position:relative;
+    align-content: center;
     left:50%;
     transform: translateX(-50%);
 }
