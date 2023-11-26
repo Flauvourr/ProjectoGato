@@ -1,10 +1,11 @@
 import random
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import Pregunta, Respuesta
 import django.contrib.messages as messages
 from core.models import User_Data
 
 #Variables Globales
+User_F_Join= 1
 numDePregunta = 1
 resp_correctas = 0
 nivel = 1
@@ -72,6 +73,11 @@ Nos vemos!! ⸜(｡˃ ᵕ ˂ )⸝♡
 -Nachi
 '''
                 ]
+#Función reinicia preguntas
+def Reset_Questions(request):
+    for pregunta in Pregunta.objects.filter(pregunta_Usada = True):
+            pregunta.pregunta_Usada = False
+            pregunta.save()
 
 #Función que reinicia el juego
 def clean_data(request):
@@ -86,7 +92,7 @@ def load_user(request):
 # Función main de la pagina gatoapp
 def gatoapp(request):
     #variables
-    global numDePregunta, resp_correctas, nivel
+    global numDePregunta, resp_correctas, nivel, User_F_Join
     resp_correctas_alert = resp_correctas
     nivel_completo = 0
     #Si se llega recien a la pagina o si recarga parte de 0 
@@ -97,7 +103,7 @@ def gatoapp(request):
             load_user(request)
     #Para cambiar de nivel o repetirlo dependiendo de las buenas
     if numDePregunta == 6:
-        if resp_correctas > 3:
+        if resp_correctas >= 3:
             nivel+=1
             nivel_completo = 1
             try: #Guarda el nivel logrado en la información del usuario logueado
@@ -108,7 +114,12 @@ def gatoapp(request):
                 pass
         else:
             nivel_completo = 0
+            Reset_Questions(request)
         clean_data(request)
+    if nivel == 8:
+        nivel = 0
+        User_F_Join = -1
+        return redirect("lobby")
         
     #Si responde una alternativa y es correcta se suma una respuesta correcta
     if request.method == "POST":
@@ -144,7 +155,14 @@ def gatoapp(request):
     return render(request, "gatoapp.html", context)
 
 def lobby(request):
-    global nivel, mensajes_chat
+    global nivel, mensajes_chat, User_F_Join
+    if User_F_Join == 1:
+        Reset_Questions(request)
+        User_F_Join = 0
+        return render(request, "Inicio.html")
+    if User_F_Join == -1:
+        User_F_Join = 1
+        return render(request, "Final.html")
     if request.user.is_authenticated: #Si hay un usuario logueado carga su información
         load_user(request)
     return render(request, "lobby.html", {"nivel" : nivel, "mensajes_chat" : mensajes_chat[nivel-1]})
