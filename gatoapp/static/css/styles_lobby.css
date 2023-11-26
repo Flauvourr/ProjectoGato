@@ -17,12 +17,6 @@ a {
     width: 100%;
     font-size: 40px;
 }
-
-p {
-    font-size: 16px;
-    line-height: normal;
-    text-align: left;
-}
   
 body {
     display: flex;
@@ -155,7 +149,7 @@ img {
     position: absolute;
 
     height: 45%;
-    width: 400px;
+    width: 500px;
     line-height: 75px;
   
     left: 0%;
@@ -166,13 +160,14 @@ img {
     margin: 50px;
     padding: 20px;
   
-    text-align: center;
-  
+    text-align: left;
+    line-height: 1.6;
     border: 15px solid #201e21;
     border-top: 70px solid #201e21;
     border-bottom: none;
     outline: 4px solid #fcfcf3;
     background-color: #fcfcf3;
+    overflow: scroll;
 }
 
 #mensajeGato-div:hover {
@@ -181,7 +176,30 @@ img {
     transform: translateY(-65%);
 }
 
+.mainText-div {
+    font-size: 20px;
+    line-height: normal;
+    text-align: justify;
+    
+}
 
+.emailHeader-div {
+    font-size: 16px;
+    line-height: normal;
+    text-align: left;
+    
+}
+.emailTitle-div {
+    font-size: 36px;
+    line-height: 2;
+    text-align: left;
+    
+}
+.fotoInside-img {
+    position:relative;
+    left:50%;
+    transform: translateX(-50%);
+}
 .div1 { grid-area: 1 / 1 / 2 / 2; background-color: #fcfcf3;}
 .div2 { grid-area: 2 / 1 / 3 / 2; background-color: #fcfcf3;}
 .div3 { grid-area: 3 / 1 / 4 / 2; background-color: #fcfcf3;}
