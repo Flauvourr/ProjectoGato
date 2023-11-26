@@ -17,6 +17,12 @@ a {
     width: 100%;
     font-size: 40px;
 }
+
+p {
+    font-size: 16px;
+    line-height: normal;
+    text-align: left;
+}
   
 body {
     display: flex;
@@ -66,6 +72,7 @@ img {
     width: 95%;
 }
 
+
 #chair-img {
     position: absolute;
 
@@ -75,6 +82,11 @@ img {
 
     height: 95%;
     width: 95%;
+}
+
+.fotoInside-img {
+    width: 150px;
+    height: 150px;
 }
 
 .nivelText-div {
