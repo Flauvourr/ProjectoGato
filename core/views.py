@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 from .models import User_Data
 # Funciones Registro, Login
 
+def home(request):
+    return render(request, "home.html")
+
 def menu(request):
     return render(request, 'menu.html')
 
