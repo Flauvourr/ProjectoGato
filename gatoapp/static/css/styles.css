@@ -56,13 +56,21 @@ img {
     margin: auto;
 }
 
-#comenzar {
+.boton {
     position: absolute;
-    top: 55%;
-    left: 50%;
     transform: translate(-50%, 0%);
 
     background-color: #fcfcf3;
+}
+
+#Comenzar{
+    top: 55%;
+    left: 50%;
+}
+
+#Ir-Lobby{
+    top: 5%;
+    left: 90%;
 }
 
 #gato {

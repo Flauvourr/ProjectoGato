@@ -48,10 +48,10 @@
         <div class="div32"> </div> 
         
         <img id="gato" src="{% static '/img/gatoanim.gif' %}"/>
-
         <form id="formularioKahoot" method="post" action = "">
             {% csrf_token %}
             {% for pregunta in preguntasElegidas %}
+            
             <div class="contenedorPregunta-div">
                 <div class="preguntaNumero-div"> Pregunta {{ numDePregunta }} </div>
                 <div class="preguntaTexto-div"> {{ pregunta.pregunta_Texto }}</div>
@@ -68,12 +68,14 @@
                     {% endfor %}
             </div>
             <a href="">
-                <button id = "comenzar">Enviar</button>
+                <button class = "boton" id = "Comenzar">Enviar</button>
             </a>
-            <p>{{mensajes_chat}}</p>
             <div class="nivelText-div" name = 'nivel'> Día {{nivel}}</div>
             {% endfor %}
         </form>
+        <a href = "/gatoapp/lobby"> 
+            <button class = "boton" id = "Ir-Lobby">Ir a lobby</button>
+        <a>
     </div>
 </body>
 </html>
