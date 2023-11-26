@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path("", views.gatoapp, name="gatoapp"),
-    path("lobby", views.lobby, name="lobby")
+    path("lobby", views.lobby, name="lobby"),
 ]
