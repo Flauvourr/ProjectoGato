@@ -104,6 +104,29 @@ img {
     transform: translate(-50%, 0%);
 }
 
+#Ir-Lobby {
+    position: absolute;
+
+    color: #fcfcf3;
+    text-align: center;
+    
+    transition: transform 0.1s steps(1, end) 0s !important;
+    
+    margin: 10px 5px;
+    border: 4px solid #fcfcf3;
+    background-color: #201e21;
+}
+
+#Ir-Lobby:hover {
+    color: #201e21;
+    
+    
+    
+    margin: 10px 5px;
+    border: 4px solid #fcfcf3;
+    background-color: #fcfcf3;
+}
+
 .contenedorRespuestas-div {
     position: relative;
     left: 3.5%;
@@ -137,9 +160,9 @@ img {
 
     top: 6%;
     left: 50%;
-    width: 90%;
-    max-height: 20%;
-    max-width: 90%;
+    width: 60%;
+    max-height: 26%;
+    max-width: 60%;
     transform: translateX(-50%);
 
     color: #fcfcf3;
