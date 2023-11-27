@@ -55,6 +55,12 @@ def gatoapp(request):
         clean_data(request)
     if nivel == 8:
         nivel = 1
+        try: 
+            user_playing = User_Data.objects.get(nombre = request.user)
+            user_playing.nivel = nivel
+            user_playing.save()
+        except:
+            pass
         User_F_Join = -1
         return redirect("lobby")
         
