@@ -9,7 +9,7 @@
         if ({{numDePregunta}} == 1 && {{nivel_completo}} == 0)
             {alert("Completaste el nivel con " + {{resp_correctas_alert}} + " respuestas correctas, pero no es suficiente :(, tendras que repetir")}
         else if({{numDePregunta}} == 1 && {{nivel_completo}} == 1)
-            {alert("Completaste el nivel con " + {{resp_correctas_alert}} + " respuestas correctas, por lo que avanzaste al siguiente nivel, Felicidades!!!")}
+            {alert("Completaste el nivel con " + {{resp_correctas_alert}} + " respuestas correctas, por lo que avanzaste al siguiente nivel, Felicidades!!!"); window.location.href = "/gatoapp/lobby"}
     </script>
 </head>
 <body>
