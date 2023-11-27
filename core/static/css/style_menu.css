@@ -30,7 +30,14 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+#hola {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  color: #fcfcf3;
+  font-size: 50px;
+}
 #oneToOneContainer-div {
     position: relative;
 

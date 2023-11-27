@@ -71,6 +71,15 @@ a {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+.message_POST {
+    position:absolute;
+    width: auto;
+    left: 50%;
+    bottom: 36%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #fcfcf3;
+}
 
 #button_send_info {
     position: relative;

@@ -53,6 +53,7 @@
             <div class="div32"> </div> 
 
         <div id = "textLogin-div">Regístrate</div>
+        <div class = "message_POST"> {{message_POST}}</div>
         <div id = "containerLogin-div">  
             <form action="" method="POST" class="register_form">
                 {% csrf_token %}
@@ -72,7 +73,7 @@
                     <label class = "registerForm-label">Reingresa tu contraseña: </label>
                     <input class = "registerForm-input" type = "password" id = "password_auth" name = "password_auth"/>
                 </div>
-                <div class = "message_POST"> {{message_POST}}</div>
+                
                 <div id="buttonSend-div">
                     <button id = "button_send_info"> Enviar </button>
                 </div>
